@@ -1,0 +1,36 @@
+<configuration>
+    <!-- appender only store the logs in console, file and database etc.    -->
+<!--    encoder use to set pattern or format to print log-->
+    <appender name ="myConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+
+        <encoder>
+            <pattern>
+
+                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+
+
+
+    <appender name ="myFileAppender" class="ch.qos.logback.core.FileAppender">
+
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+
+        </encoder>
+        <file>
+           logs/myapp.log
+        </file>
+
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="myConsoleAppender" />
+        <appender-ref ref="myFileAppender" />
+    </root>
+
+</configuration>
